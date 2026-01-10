@@ -94,16 +94,16 @@ RUN \
 
 # build qbittorrent
 RUN \
-  if [ "${QBT_VERSION}" = "devel" ]; then \
+  if [ "{$QBT_VERSION}" = "devel" ]; then \
     git clone \
       --depth 1 \
       --recurse-submodules \
       https://github.com/qbittorrent/qBittorrent.git && \
     cd qBittorrent ; \
   else \
-    wget "https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-${QBT_VERSION}.tar.gz" && \
-    tar -xf "release-${QBT_VERSION}.tar.gz" && \
-    cd "qBittorrent-release-${QBT_VERSION}" ; \
+    wget "https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-{$QBT_VERSION}.tar.gz" && \
+    tar -xf "release-{$QBT_VERSION}.tar.gz" && \
+    cd "qBittorrent-release-{$QBT_VERSION}" ; \
   fi && \
   cmake \
     -B build \
@@ -126,12 +126,12 @@ RUN \
   cd libtorrent && \
   echo "libtorrent-rasterbar git $(git rev-parse HEAD)" >> /sbom.txt && \
   cd .. && \
-  if [ "${QBT_VERSION}" = "devel" ]; then \
+  if [ "{$QBT_VERSION}" = "devel" ]; then \
     cd qBittorrent && \
     echo "qBittorrent git $(git rev-parse HEAD)" >> /sbom.txt && \
     cd .. ; \
   else \
-    echo "qBittorrent ${QBT_VERSION}" >> /sbom.txt ; \
+    echo "qBittorrent {$QBT_VERSION}" >> /sbom.txt ; \
   fi && \
   echo >> /sbom.txt && \
   apk list -I | sort >> /sbom.txt && \
