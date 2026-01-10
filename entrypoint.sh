@@ -1,6 +1,6 @@
 #!/bin/sh
 
-downloadsPath="/volume1/docker/qbit/data/incomplete"
+downloadsPath="/volume1/docker/qbit/incomplete"
 profilePath="/volume1/docker"
 qbtConfigFile="$profilePath/qbit/config/qBittorrent.conf"
 
@@ -36,10 +36,10 @@ if [ ! -f "$qbtConfigFile" ]; then
     cat << EOF > "$qbtConfigFile"
 [BitTorrent]
 Session\DefaultSavePath=$downloadsPath
-Session\Port=6881
-Session\TempPath=$downloadsPath/temp
+Session\Port=62629
+Session\TempPath=$profilePath/qbit/temp
 [Preferences]
-WebUI\Port=8080
+WebUI\Port=9002
 EOF
 fi
 
