@@ -32,7 +32,7 @@ ARG QBT_VERSION \
 
 # check environment variables
 RUN \
-  if [ -z "${QBT_VERSION}" ]; then \
+  if [ -z $QBT_VERSION$ ]; then \
     echo 'Missing QBT_VERSION variable. Check your command line arguments.' && \
     exit 1 ; \
   fi
