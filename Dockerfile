@@ -23,12 +23,19 @@ RUN \
 # image for building
 FROM base AS builder
 
+RUN \
+   echo 'running ARG'
+
 ARG QBT_VERSION \
     BOOST_VERSION_MAJOR="1" \
     BOOST_VERSION_MINOR="86" \
     BOOST_VERSION_PATCH="0" \
     LIBBT_VERSION="RC_1_2" \
     LIBBT_CMAKE_FLAGS=""
+
+RUN \
+   echo 'ARG run' + '${QBT_VERSION}'
+ENV QBT_VERSION=ci
 
 # check environment variables
 RUN \
