@@ -1,8 +1,8 @@
 #!/bin/sh
 
-downloadsPath="/downloads"
-profilePath="/config"
-qbtConfigFile="$profilePath/qBittorrent/config/qBittorrent.conf"
+downloadsPath="/volume1/docker/qbit/data/incomplete"
+profilePath="/volume1/docker"
+qbtConfigFile="$profilePath/qbit/config/qBittorrent.conf"
 
 isRoot="0"
 if [ "$(id -u)" = "0" ]; then
