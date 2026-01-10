@@ -1,5 +1,5 @@
 # create an up-to-date base image for everything
-FROM alpine:latest AS basef
+FROM alpine:latest AS base
 
 RUN \
   apk --no-cache --update-cache upgrade
