@@ -32,7 +32,7 @@ ARG QBT_VERSION \
 
 # check environment variables
 RUN \
-  if [ -z "{$QBT_VERSION}" ]; then \
+  if [ -z "${QBT_VERSION}" ]; then \
     echo 'Missing QBT_VERSION variable. Check your command line arguments.' && \
     exit 1 ; \
   fi
@@ -94,7 +94,7 @@ RUN \
 
 # build qbittorrent
 RUN \
-  if [ "{$QBT_VERSION}" = "devel" ]; then \
+  if [ "${QBT_VERSION}" = "devel" ]; then \
     git clone \
       --depth 1 \
       --recurse-submodules \
@@ -126,12 +126,12 @@ RUN \
   cd libtorrent && \
   echo "libtorrent-rasterbar git $(git rev-parse HEAD)" >> /sbom.txt && \
   cd .. && \
-  if [ "{$QBT_VERSION}" = "devel" ]; then \
+  if [ "${QBT_VERSION}" = "devel" ]; then \
     cd qBittorrent && \
     echo "qBittorrent git $(git rev-parse HEAD)" >> /sbom.txt && \
     cd .. ; \
   else \
-    echo "qBittorrent {$QBT_VERSION}" >> /sbom.txt ; \
+    echo "qBittorrent ${QBT_VERSION}" >> /sbom.txt ; \
   fi && \
   echo >> /sbom.txt && \
   apk list -I | sort >> /sbom.txt && \
