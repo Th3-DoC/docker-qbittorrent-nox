@@ -1,6 +1,5 @@
 # create an up-to-date base image for everything
 FROM alpine:latest AS basef
-FROM QBT_VERSION
 
 RUN \
   apk --no-cache --update-cache upgrade
