@@ -35,7 +35,7 @@ ARG QBT_VERSION \
 
 RUN \
    echo 'ARG run' + '${QBT_VERSION}'
-ENV QBT_VERSION=ci
+ENV QBT_VERSION=devel
 
 # check environment variables
 RUN \
