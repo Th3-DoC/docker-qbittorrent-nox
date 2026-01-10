@@ -99,7 +99,7 @@ RUN \
       --depth 1 \
       --recurse-submodules \
       https://github.com/qbittorrent/qBittorrent.git && \
-    cd qbit=qBittorrent ; \
+    cd qBittorrent ; \
   else \
     wget "https://github.com/qbittorrent/qBittorrent/archive/refs/tags/release-${QBT_VERSION}.tar.gz" && \
     tar -xf "release-${QBT_VERSION}.tar.gz" && \
@@ -127,7 +127,7 @@ RUN \
   echo "libtorrent-rasterbar git $(git rev-parse HEAD)" >> /sbom.txt && \
   cd .. && \
   if [ "${QBT_VERSION}" = "devel" ]; then \
-    cd qbit=qBittorrent && \
+    cd qBittorrent && \
     echo "qBittorrent git $(git rev-parse HEAD)" >> /sbom.txt && \
     cd .. ; \
   else \
