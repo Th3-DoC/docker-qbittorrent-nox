@@ -1,5 +1,6 @@
 # create an up-to-date base image for everything
-FROM alpine:latest AS base
+FROM alpine:latest AS basef
+FROM QBT_VERSION
 
 RUN \
   apk --no-cache --update-cache upgrade
@@ -32,7 +33,7 @@ ARG QBT_VERSION \
 
 # check environment variables
 RUN \
-  if [ -z '{$QBT_VERSION$}' ]; then \
+  if [ -z $QBT_VERSION ]; then \
     echo 'Missing QBT_VERSION variable. Check your command line arguments.' && \
     exit 1 ; \
   fi
